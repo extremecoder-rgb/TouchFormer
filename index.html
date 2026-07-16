@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TouchGPT | AI Foundation Model</title>
     <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .demo-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .demo-section h2 {
+            text-align: center;
+            color: #60a5fa;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+    </style>
 </head>
 <body class="landing-theme">
     <nav class="navbar">
@@ -13,8 +38,6 @@
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="research.html">Research Paper</a></li>
-            <li><a href="hospital.html">Healthcare</a></li>
-            <li><a href="robot.html">Robotics</a></li>
         </ul>
     </nav>
 
@@ -22,53 +45,38 @@
         <header class="hero">
             <h1 class="gradient-text">Teaching AI to Feel</h1>
             <p class="subtitle">A Vision Transformer (ViT-B/16) foundation model for 3D human pose estimation purely from tactile pressure maps.</p>
-            <div class="cta-buttons">
-                <a href="hospital.html" class="btn primary-btn">Launch Healthcare Simulation</a>
-                <a href="robot.html" class="btn secondary-btn">View Robotics Application</a>
-            </div>
+            
+            <img src="https://raw.githubusercontent.com/henryclever/bodies-at-rest/master/docs/figures/intro_overview.JPG" alt="PressurePose dataset and 3D human mesh reconstruction from pressure maps">
         </header>
 
-        <section class="story-section glass">
-            <h2>The Challenge: Beyond Vision</h2>
-            <p>Most AI models rely heavily on computer vision. However, in scenarios like intensive care monitoring or robotic manipulation, visual data is often occluded (e.g., a patient covered by a blanket). <strong>TouchGPT</strong> bridges this gap by translating raw tactile pressure data into complete 3D spatial awareness.</p>
-            
-            <div class="architecture-grid">
-                <div class="arch-card">
-                    <h3>1. Sensory Input</h3>
-                    <p>We utilize a high-density tactile matrix (64x27 resolution) simulating a smart hospital bed or robotic skin. To demonstrate inference latency on the live website, the UI currently injects continuous noise simulations directly into the neural network.</p>
-                </div>
-                <div class="arch-card">
-                    <h3>2. Transformer Backbone</h3>
-                    <p>The core of TouchGPT is a modified <strong>ViT-B/16</strong> architecture. It processes the pressure maps as non-overlapping patches, learning complex spatial correlations between pressure points without relying on any RGB cameras.</p>
-                </div>
-                <div class="arch-card">
-                    <h3>3. 3D Anatomical Output</h3>
-                    <p>The model decodes the transformer embeddings into 24 distinct 3D anatomical keypoints (72 dimensions), successfully reconstructing the precise posture and spatial orientation of the subject.</p>
-                </div>
-            </div>
-        </section>
+        <section class="demo-section">
+            <h2>Live Interactive Demo</h2>
+            <div class="dashboard">
+                <header style="text-align: center; margin-bottom: 2rem;">
+                    <button id="predict-btn" class="glow-on-hover" style="font-size: 1.2rem; padding: 1rem 3rem;">Inject Sensory Data</button>
+                    <p style="margin-top: 1rem; color: #a1a1aa;">Watch the AI translate raw pressure into 3D anatomy in real-time.</p>
+                </header>
 
-        <section class="metrics-section glass">
-            <h2>Model Performance & Architecture Metrics</h2>
-            <div class="metrics-grid">
-                <div class="metric-box">
-                    <span class="metric-number">ViT-B/16</span>
-                    <span class="metric-label">Backbone Architecture</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-number">11</span>
-                    <span class="metric-label">Training Epochs Completed</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-number">6.29 cm</span>
-                    <span class="metric-label">Mean Per Joint Position Error (MPJPE)</span>
-                </div>
-                <div class="metric-box">
-                    <span class="metric-number">24</span>
-                    <span class="metric-label">3D Joints Reconstructed</span>
+                <div class="panels" style="display: flex; gap: 2rem; justify-content: center;">
+                    <div class="panel glass" style="flex: 1; padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color: #e4e4e7; margin-bottom: 1rem; text-align: center;">Raw Pressure Input (64x27)</h3>
+                        <div id="heatmap-container" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <p class="placeholder" style="color: #71717a;">Click 'Inject Sensory Data' to begin...</p>
+                        </div>
+                    </div>
+
+                    <div class="panel glass" style="flex: 1; padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color: #e4e4e7; margin-bottom: 1rem; text-align: center;">TouchGPT 3D Skeleton</h3>
+                        <div id="skeleton-container" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <p class="placeholder" style="color: #71717a;">Waiting for AI Prediction...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
+
+    <!-- We import our script as type="module" to enable import from CDN -->
+    <script type="module" src="static/script.js"></script>
 </body>
 </html>
