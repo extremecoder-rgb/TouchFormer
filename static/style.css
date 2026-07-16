@@ -1,323 +1,324 @@
 :root {
-    --bg-color: #0f172a;
-    --panel-bg: rgba(30, 41, 59, 0.7);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --alert-safe: #10b981;
-    --alert-danger: #ef4444;
+    --bg-color: #FAF8F5; /* Elegant book-paper warm off-white */
+    --bg-secondary: #F3ECE0; /* Slightly darker warm cream for code/cards */
+    --text-primary: #1C1917; /* Charcoal/dark stone for readable text */
+    --text-secondary: #57534E; /* Scholarly gray-brown for captions and labels */
+    --accent-color: #8C6239; /* Muted academic leather/brown */
+    --accent-hover: #5B4029;
+    --border-color: #E7E1D3; /* Soft tan/cream borders */
+    --card-bg: #F5F0E6; /* Scholarly tan card background */
+    --code-bg: #EFECE6; /* Cool/warm grey-cream for code */
+    --link-bg: #FFFFFF;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--bg-color);
-    background-image: radial-gradient(circle at top right, #1e293b, #0f172a);
     color: var(--text-primary);
-    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.75;
+    font-size: 1.05rem;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.5rem 3rem;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.logo {
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: var(--text-primary);
-    border-bottom: 2px solid var(--accent);
-}
-
-/* Dashboard */
-.dashboard {
-    padding: 2rem 3rem;
-}
-
-header {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-/* Glassmorphism Panels */
-.panels {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.glass {
-    background: var(--panel-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 1.5rem;
-    flex: 1;
-    min-width: 400px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-.glass h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 0.5rem;
-}
-
-#heatmap-container, #skeleton-container {
-    height: 400px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Buttons */
-.glow-on-hover {
-    padding: 12px 24px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: var(--accent);
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-.glow-on-hover:hover {
-    background: var(--accent-hover);
-    box-shadow: 0 0 15px var(--accent);
-}
-
-/* Alerts */
-.alert {
-    padding: 1rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.alert.safe { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
-.alert.danger { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
-
-.metrics p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Robotics Theme */
-.robotics-theme {
-    background-image: radial-gradient(circle at bottom left, #064e3b, #022c22);
-}
-.robotics-theme .logo {
-    background: linear-gradient(90deg, #10b981, #34d399);
-    -webkit-background-clip: text;
-}
-.robotics-theme .robot-btn {
-    background: #10b981;
-}
-.robotics-theme .robot-btn:hover {
-    background: #34d399;
-    box-shadow: 0 0 15px #10b981;
-}
-/* ---------- Landing Page Styles ---------- */
-.landing-theme {
-    background: radial-gradient(circle at top center, #111827 0%, #030712 100%);
-    overflow-y: auto;
-}
-
-.landing-container {
-    max-width: 1200px;
+.container {
+    max-width: 850px;
     margin: 0 auto;
-    padding: 2rem;
-    padding-top: 100px;
+    padding: 5rem 2rem;
 }
 
-.hero {
+/* Typography */
+h1, h2, h3, h4, .serif {
+    font-family: 'Lora', Georgia, Cambria, "Times New Roman", Times, serif;
+    color: #1C1917;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Paper Header (PhD / Academic Portfolio Style) */
+.paper-header {
     text-align: center;
     margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.gradient-text {
-    font-size: 4rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+.paper-preprint {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 1.2rem;
 }
 
-.subtitle {
-    font-size: 1.25rem;
-    color: #9ca3af;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
+.paper-authors {
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
 }
 
-.cta-buttons {
+.author-block {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.author-affiliation {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.paper-links {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
+.paper-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--link-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: var(--text-primary);
     text-decoration: none;
-    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
-.primary-btn {
-    background: #3b82f6;
-    color: white;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+.paper-link-btn:hover {
+    background-color: var(--card-bg);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-1px);
 }
 
-.primary-btn:hover {
-    background: #2563eb;
-    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+.paper-link-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
-.secondary-btn {
-    background: transparent;
-    color: white;
-    border: 1px solid #4b5563;
+/* Abstract Box */
+.abstract-container {
+    background-color: var(--card-bg);
+    padding: 2.2rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 3.5rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
 }
 
-.secondary-btn:hover {
-    background: #1f2937;
-    border-color: #6b7280;
-}
-
-.story-section {
-    padding: 3rem;
-    margin-bottom: 3rem;
-    border-radius: 12px;
-}
-
-.story-section h2 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 1.5rem;
-}
-
-.story-section p {
-    color: #d1d5db;
-    line-height: 1.8;
+.abstract-title {
+    text-align: center;
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
-.architecture-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.abstract-text {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #292524;
+    margin-bottom: 0;
 }
 
-.arch-card {
-    background: rgba(255, 255, 255, 0.03);
+/* Architecture Highlight Section */
+.architecture-container {
+    margin: 2.5rem 0;
+    text-align: center;
+}
+
+.architecture-diagram {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.arch-card h3 {
-    color: #60a5fa;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
-.arch-card p {
+.architecture-caption {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+/* Key Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.4rem;
+}
+
+.feature-card p {
     font-size: 0.95rem;
     margin-bottom: 0;
-    color: #9ca3af;
+    color: var(--text-secondary);
 }
 
-.metrics-section {
-    padding: 3rem;
-    border-radius: 12px;
-    text-align: center;
-    margin-bottom: 50px;
+/* Academic Tables */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 2rem 0;
 }
 
-.metrics-section h2 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 2.5rem;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.metric-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.metric-number {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #a78bfa;
+.academic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
     margin-bottom: 0.5rem;
 }
 
-.metric-label {
-    color: #9ca3af;
+.academic-table th {
+    border-top: 2px solid var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
+    padding: 10px 12px;
     font-weight: 600;
+    text-align: left;
+}
+
+.academic-table td {
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 12px;
+}
+
+.academic-table tr:last-child td {
+    border-bottom: 2px solid var(--text-primary);
+}
+
+.table-caption {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Code & BibTeX */
+.citation-section {
+    margin-top: 4rem;
+}
+
+.bibtex-wrapper {
+    position: relative;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+
+.bibtex-code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.85rem;
+    white-space: pre;
+    overflow-x: auto;
+    display: block;
+    color: #292524;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-color);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.copy-btn:hover {
+    background-color: var(--card-bg);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-top: 5rem;
+}
+
+footer p {
+    text-align: center;
+    margin-bottom: 0.5rem;
 }

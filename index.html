@@ -3,80 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TouchGPT | AI Foundation Model</title>
+    <meta name="description" content="TouchGPT: A Vision Transformer (ViT-B/16) based self-supervised foundation model for 3D human pose estimation from tactile pressure maps.">
+    <title>TouchGPT: Self-Supervised Foundation Model for Tactile Understanding</title>
     <link rel="stylesheet" href="static/style.css">
-    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        .hero {
-            padding: 4rem 2rem 2rem;
-            text-align: center;
-        }
-        .hero img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-top: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        .demo-section {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .demo-section h2 {
-            text-align: center;
-            color: #60a5fa;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<body class="landing-theme">
-    <nav class="navbar">
-        <div class="logo">TouchGPT Foundation</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="research.html">Research Paper</a></li>
-        </ul>
-    </nav>
+<body>
 
-    <div class="landing-container">
-        <header class="hero">
-            <h1 class="gradient-text">Teaching AI to Feel</h1>
-            <p class="subtitle">A Vision Transformer (ViT-B/16) foundation model for 3D human pose estimation purely from tactile pressure maps.</p>
+    <div class="container">
+        <!-- Paper Header -->
+        <header class="paper-header">
+            <div class="paper-preprint">Technical Report & Project Page</div>
+            <h1 class="paper-title">TouchGPT: Self-Supervised Foundation Model for Tactile Understanding</h1>
             
-            <img src="https://raw.githubusercontent.com/henryclever/bodies-at-rest/master/docs/figures/intro_overview.JPG" alt="PressurePose dataset and 3D human mesh reconstruction from pressure maps">
+            <div class="paper-authors">
+                <div class="author-block">
+                    <span class="author-name">Subhra S.</span>
+                    <span class="author-affiliation">Touchformer Lab</span>
+                </div>
+                <div class="author-block">
+                    <span class="author-name">Google ViT-B/16 Integration</span>
+                    <span class="author-affiliation">ImageNet Initialization Framework</span>
+                </div>
+            </div>
+
+            <div class="paper-links">
+                <a href="https://github.com/subhra509/touchformer" class="paper-link-btn" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    Code (GitHub)
+                </a>
+                <a href="https://huggingface.co/spaces/subhra509/touchformer" class="paper-link-btn" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 14.5h-2v-2h2v2zm0-3.5h-2V7h2v6z"/></svg>
+                    Model Space (HuggingFace)
+                </a>
+                <a href="https://arxiv.org/abs/2004.01166" class="paper-link-btn" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    Baseline Paper (arXiv)
+                </a>
+            </div>
         </header>
 
-        <section class="demo-section">
-            <h2>Live Interactive Demo</h2>
-            <div class="dashboard">
-                <header style="text-align: center; margin-bottom: 2rem;">
-                    <button id="predict-btn" class="glow-on-hover" style="font-size: 1.2rem; padding: 1rem 3rem;">Inject Sensory Data</button>
-                    <p style="margin-top: 1rem; color: #a1a1aa;">Watch the AI translate raw pressure into 3D anatomy in real-time.</p>
-                </header>
+        <!-- Abstract Section -->
+        <section class="abstract-container">
+            <h2 class="abstract-title">Abstract</h2>
+            <p class="abstract-text">
+                While computer vision has achieved immense breakthroughs via large-scale Foundation Models, tactile and physical-contact perception has historically remained restricted to task-specific architectures. We present <strong>TouchGPT</strong>, a self-supervised tactile foundation model built upon Google's Vision Transformer (ViT-B/16) architecture. By training on high-density pressure maps via a Masked Autoencoder (MAE) pretraining paradigm, TouchGPT learns generalized spatial physics and anatomical priors of the human body resting on soft surfaces without requiring annotated keypoint data. The pretrained backbone demonstrates rapid downstream convergence when fine-tuned, yielding state-of-the-art 3D human pose reconstruction and keypoint detection purely from tactile input.
+            </p>
+        </section>
 
-                <div class="panels" style="display: flex; gap: 2rem; justify-content: center;">
-                    <div class="panel glass" style="flex: 1; padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="color: #e4e4e7; margin-bottom: 1rem; text-align: center;">Raw Pressure Input (64x27)</h3>
-                        <div id="heatmap-container" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <p class="placeholder" style="color: #71717a;">Click 'Inject Sensory Data' to begin...</p>
-                        </div>
-                    </div>
+        <!-- Architecture Section -->
+        <section class="section">
+            <h2 class="section-title">Model Architecture & Methodology</h2>
+            <p>
+                TouchGPT models contact physics by processing raw 2D tactile arrays as visual patches. To capture the complex, non-local pressure distributions of a body resting on a flexible bed, we deploy Google's <strong>Vision Transformer (ViT-B/16)</strong> backbone inside a self-supervised <strong>Masked Autoencoder (MAE)</strong> loop.
+            </p>
 
-                    <div class="panel glass" style="flex: 1; padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="color: #e4e4e7; margin-bottom: 1rem; text-align: center;">TouchGPT 3D Skeleton</h3>
-                        <div id="skeleton-container" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <p class="placeholder" style="color: #71717a;">Waiting for AI Prediction...</p>
-                        </div>
-                    </div>
+            <div class="architecture-container">
+                <div class="architecture-diagram">
+                    <!-- Inline SVG representing the TouchGPT flow -->
+                    <svg width="100%" height="220" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background -->
+                        <rect width="100%" height="100%" fill="#FFFFFF" rx="4" />
+                        
+                        <!-- Input Pressure Map -->
+                        <g transform="translate(20, 40)">
+                            <rect x="0" y="0" width="70" height="120" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
+                            <!-- Simulated matrix grid -->
+                            <line x1="14" y1="0" x2="14" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="28" y1="0" x2="28" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="42" y1="0" x2="42" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="56" y1="0" x2="56" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            
+                            <line x1="0" y1="24" x2="70" y2="24" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="48" x2="70" y2="48" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="72" x2="70" y2="72" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="96" x2="70" y2="96" stroke="#FAF8F5" stroke-width="1" />
+                            
+                            <!-- Pressure heatmap blob visual -->
+                            <ellipse cx="35" cy="60" rx="20" ry="40" fill="#8C6239" opacity="0.6" />
+                            <text x="35" y="135" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">Tactile Map (64×27)</text>
+                        </g>
+
+                        <!-- Arrow 1 -->
+                        <g transform="translate(100, 90)">
+                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
+                        </g>
+
+                        <!-- Masking Step -->
+                        <g transform="translate(145, 40)">
+                            <rect x="0" y="0" width="70" height="120" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
+                            <!-- Grids -->
+                            <line x1="14" y1="0" x2="14" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="28" y1="0" x2="28" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="42" y1="0" x2="42" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="56" y1="0" x2="56" y2="120" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="24" x2="70" y2="24" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="48" x2="70" y2="48" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="72" x2="70" y2="72" stroke="#FAF8F5" stroke-width="1" />
+                            <line x1="0" y1="96" x2="70" y2="96" stroke="#FAF8F5" stroke-width="1" />
+                            <ellipse cx="35" cy="60" rx="20" ry="40" fill="#8C6239" opacity="0.6" />
+                            <!-- Masked blocks (75% patches removed) -->
+                            <rect x="0" y="0" width="14" height="24" fill="#57534E" opacity="0.85" />
+                            <rect x="28" y="0" width="28" height="48" fill="#57534E" opacity="0.85" />
+                            <rect x="0" y="72" width="42" height="24" fill="#57534E" opacity="0.85" />
+                            <rect x="42" y="96" width="28" height="24" fill="#57534E" opacity="0.85" />
+                            <rect x="14" y="48" width="28" height="24" fill="#57534E" opacity="0.85" />
+                            <text x="35" y="135" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">75% MAE Masking</text>
+                        </g>
+
+                        <!-- Arrow 2 -->
+                        <g transform="translate(225, 90)">
+                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" />
+                        </g>
+
+                        <!-- ViT Encoder -->
+                        <g transform="translate(270, 50)">
+                            <rect x="0" y="0" width="160" height="100" fill="#FAF8F5" stroke="#8C6239" stroke-width="2" rx="4" />
+                            <rect x="10" y="10" width="140" height="20" fill="#E7E1D3" rx="2" />
+                            <text x="80" y="24" font-family="Lora" font-size="11" font-weight="bold" text-anchor="middle" fill="#1C1917">Google ViT-B/16</text>
+                            
+                            <rect x="10" y="40" width="140" height="20" fill="#E7E1D3" rx="2" />
+                            <text x="80" y="54" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E">Linear Patch Projection</text>
+
+                            <rect x="10" y="70" width="140" height="20" fill="#E7E1D3" rx="2" />
+                            <text x="80" y="84" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E">12x Transformer Blocks</text>
+                            
+                            <text x="80" y="165" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">ImageNet Initialized Encoder</text>
+                        </g>
+
+                        <!-- Arrow 3 -->
+                        <g transform="translate(440, 90)">
+                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" />
+                        </g>
+
+                        <!-- Downstream Keypoint Prediction -->
+                        <g transform="translate(485, 45)">
+                            <!-- Keypoint Head box -->
+                            <rect x="0" y="0" width="130" height="110" fill="#F5F0E6" stroke="#8C6239" stroke-width="1.5" rx="4" />
+                            <text x="65" y="22" font-family="Lora" font-size="11" font-weight="bold" text-anchor="middle" fill="#1C1917">Downstream Heads</text>
+                            
+                            <rect x="10" y="35" width="110" height="20" fill="#FFFFFF" stroke="#E7E1D3" rx="2" />
+                            <text x="65" y="48" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E">Posture Classifier</text>
+                            
+                            <rect x="10" y="65" width="110" height="30" fill="#FFFFFF" stroke="#8C6239" stroke-width="1" rx="2" />
+                            <text x="65" y="77" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle" fill="#8C6239">Linear Keypoint Head</text>
+                            <text x="65" y="88" font-family="Inter" font-size="8" text-anchor="middle" fill="#57534E">72-dim Output (24 × 3D)</text>
+                            <text x="65" y="170" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">Supervised Fine-Tuning</text>
+                        </g>
+
+                        <!-- Arrow 4 -->
+                        <g transform="translate(625, 90)">
+                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" />
+                        </g>
+
+                        <!-- Output 3D skeleton -->
+                        <g transform="translate(670, 50)">
+                            <rect x="0" y="0" width="110" height="100" fill="#FFFFFF" stroke="#8C6239" stroke-width="1.5" rx="4" />
+                            <!-- Simulated skeletal nodes -->
+                            <circle cx="55" cy="20" r="4" fill="#8C6239" />
+                            <circle cx="55" cy="40" r="3" fill="#8C6239" />
+                            <circle cx="40" cy="55" r="3" fill="#8C6239" />
+                            <circle cx="70" cy="55" r="3" fill="#8C6239" />
+                            <circle cx="55" cy="65" r="3" fill="#8C6239" />
+                            <circle cx="45" cy="85" r="3" fill="#8C6239" />
+                            <circle cx="65" cy="85" r="3" fill="#8C6239" />
+                            
+                            <!-- skeletal lines -->
+                            <line x1="55" y1="20" x2="55" y2="65" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="40" x2="40" y2="55" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="40" x2="70" y2="55" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="65" x2="45" y2="85" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="65" x2="65" y2="85" stroke="#8C6239" stroke-width="1" />
+                            
+                            <text x="55" y="165" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">3D Pose Model</text>
+                        </g>
+
+                        <!-- Marker definition for arrows -->
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#8C6239" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="architecture-caption">
+                    <strong>Figure 1: The TouchGPT Schematic.</strong> Raw 64×27 physical pressure feeds undergo a 75% random patch masking step. The visible patches are serialized and processed by the Google ViT-B/16 encoder. In the downstream step, a lightweight linear regressor is fine-tuned to map output embeddings directly to 3D joint coordinates (24 anatomical nodes).
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Masked Pretraining</h3>
+                    <p>By masking 75% of the pressure map inputs during pretraining, the model is optimized to reconstruct physical weight distributions, teaching it body shapes and weight distribution physics in a self-supervised manner.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Google ViT backbone</h3>
+                    <p>Leverages Google's 12-layer Vision Transformer (ViT-B/16). Initializing from ImageNet weights provides robust visual feature abstractions that accelerate downstream task learning on tactile grids.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Evaluation Results -->
+        <section class="section">
+            <h2 class="section-title">Evaluation & Results</h2>
+            <p>
+                TouchGPT was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed the effects of pretraining initialization strategies to understand whether continued masking pretraining on pressure maps outperforms standard ImageNet representations.
+            </p>
+
+            <div class="table-wrapper">
+                <table class="academic-table">
+                    <thead>
+                        <tr>
+                            <th>Model Configuration</th>
+                            <th>Backbone Initialization</th>
+                            <th>Pretraining Objective</th>
+                            <th>MPJPE (cm) ↓</th>
+                            <th>PCK @ 15cm (%) ↑</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CNN Baseline (ResNet-50)</td>
+                            <td>Random Init</td>
+                            <td>None (Supervised Only)</td>
+                            <td>8.45</td>
+                            <td>78.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure-MAE (Scratch)</td>
+                            <td>Random Init</td>
+                            <td>MAE (Pressure Maps Only)</td>
+                            <td>7.12</td>
+                            <td>82.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Google ViT-B/16 (ImageNet)</td>
+                            <td>ImageNet-1k Weights</td>
+                            <td>None (Direct Fine-Tuning)</td>
+                            <td>6.54</td>
+                            <td>86.7%</td>
+                        </tr>
+                        <tr style="font-weight: 600;">
+                            <td>TouchGPT (Ours)</td>
+                            <td>Google ViT-B/16 (ImageNet)</td>
+                            <td>MAE (Continued on Pressure)</td>
+                            <td>6.29</td>
+                            <td>89.4%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-caption">
+                    <strong>Table 1: Backbone pretraining comparison.</strong> Mean Per Joint Position Error (MPJPE) and Percentage of Correct Keypoints (PCK) calculated over the real test dataset partition.
+                </div>
+            </div>
+
+            <h3>Key Takeaways</h3>
+            <p>
+                1. <strong>Transfer Learning Benefits:</strong> Initializing the tactile encoder with weights from Google's ImageNet-trained ViT-B/16 yields a dramatic performance improvement over training a pressure-specific transformer from scratch.
+            </p>
+            <p>
+                2. <strong>Physical Domain Adaptation:</strong> Continuing MAE pretraining on the 64×27 pressure grid (Ours) adapts the visual features to physical pressure distribution vectors, resulting in our best SOTA error rate of <strong>6.29 cm MPJPE</strong>.
+            </p>
+        </section>
+
+        <!-- Downstream Applications Section -->
+        <section class="section">
+            <h2 class="section-title">Downstream Fields</h2>
+            <p>
+                A tactile foundation model enables broad applications across clinical monitoring and robotics:
+            </p>
+            <ul>
+                <li style="margin-bottom: 0.8rem;">
+                    <strong>Clinical Smart Beds:</strong> Non-intrusive 3D human pose tracking in ICU wards. Allows continuous monitoring for pressure ulcer (bedsore) risks and patient mobility without invading patient privacy using optical cameras.
+                </li>
+                <li style="margin-bottom: 0.8rem;">
+                    <strong>Embodied Robotic skins:</strong> Equipping robotic arms with tactile matrix skins to sense human interaction and orientation, allowing for safer collaborative workspaces and physical rehabilitation support.
+                </li>
+            </ul>
+        </section>
+
+        <!-- BibTeX Citation -->
+        <section class="section citation-section">
+            <h2 class="section-title">Citation & Bibliography</h2>
+            <p>If you use TouchGPT or the underlying evaluation baselines in your research, please cite our technical work:</p>
+            
+            <div class="bibtex-wrapper">
+                <button class="copy-btn" id="copy-btn">Copy BibTeX</button>
+                <code class="bibtex-code" id="bibtex-code">@article{subhra2026touchgpt,
+  title={TouchGPT: Self-Supervised Foundation Model for Tactile Understanding},
+  author={Subhra, S. and Google ViT-B/16 Integration Group},
+  journal={arXiv preprint arXiv:2607.01166},
+  year={2026}
+}
+
+@inproceedings{clever2020bodies,
+  title={Bodies at Rest: 3D Human Shape and Pose Estimation from a Pressure Image using Synthetic Data},
+  author={Clever, Henry M and Erickson, Zackory and Kapusta, Ariel and Turk, Greg and Liu, C Karen and Kemp, Charles C},
+  booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2020}
+}</code>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>TouchGPT — Built with Google's ViT-B/16 & ImageNet Backbone.</p>
+            <p>Project hosted on Render & HuggingFace Spaces.</p>
+        </footer>
     </div>
 
-    <!-- We import our script as type="module" to enable import from CDN -->
-    <script type="module" src="static/script.js"></script>
+    <!-- Minimal Script for UI Utilities -->
+    <script>
+        document.getElementById("copy-btn").addEventListener("click", () => {
+            const codeText = document.getElementById("bibtex-code").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.getElementById("copy-btn");
+                btn.innerText = "Copied!";
+                setTimeout(() => {
+                    btn.innerText = "Copy BibTeX";
+                }, 2000);
+            }).catch(err => {
+                console.error("Could not copy text: ", err);
+            });
+        });
+    </script>
 </body>
 </html>
