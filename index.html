@@ -243,7 +243,7 @@
         <section class="section">
             <h2 class="section-title">Evaluation & Results</h2>
             <p>
-                TouchFormer was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed different pretraining and weight initialization strategies to understand whether self-supervised pretraining on pressure maps from scratch compares to or outperforms standard ImageNet representations.
+                TouchFormer was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed different pretraining and weight initialization strategies to understand whether self-supervised pretraining on pressure maps from scratch compares to or outperforms standard ImageNet representations. Notably, due to academic compute limits, our custom MAE model (Experiment B) was only pre-trained for <strong>20 epochs</strong> (~5 hours), yet it achieved highly competitive results close to the visual foundation model.
             </p>
 
             <div class="table-wrapper">
@@ -292,6 +292,9 @@
             </p>
             <p>
                 2. <strong>Self-Supervised Tactile Priors:</strong> Training purely on pressure maps from scratch using the Masked Autoencoder objective (Experiment B) yields a highly competitive <strong>6.91 cm MPJPE</strong>, significantly outperforming the supervised CNN baseline (7.75 cm MPJPE) without using any labeled 3D keypoint data.
+            </p>
+            <p>
+                3. <strong>Compute & Pretraining Efficiency:</strong> Due to academic compute constraints, our custom MAE model (Experiment B) was pre-trained for only <strong>20 epochs</strong> (~5 hours on a single GPU), compared to standard MAE schedules of 800–1600 epochs. Getting so close to the fully pre-trained ImageNet model with a fraction of the compute highlights the extreme sample efficiency of self-supervised learning for tactile grids.
             </p>
         </section>
 
