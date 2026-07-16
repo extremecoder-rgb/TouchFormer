@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouchGPT | Robotics</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="robotics-theme">
+    <nav class="navbar">
+        <div class="logo">TouchGPT Foundation</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Hospital Dashboard</a></li>
+            <li><a href="robot.html" class="active">Robotics Simulator</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard">
+        <header>
+            <h1>Robotic Tactile Skin Simulator</h1>
+            <p>Translating Embodied Touch into 3D Spatial Awareness</p>
+            <button id="predict-btn" class="glow-on-hover robot-btn">Inject Sensory Data</button>
+        </header>
+
+        <div class="panels">
+            <div class="panel glass dark-glass">
+                <h2>Tactile Skin Feed</h2>
+                <div id="heatmap-container"></div>
+            </div>
+
+            <div class="panel glass dark-glass">
+                <h2>Spatial Reconstruction</h2>
+                <div id="skeleton-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- We import our script as type="module" to enable import from CDN -->
+    <script type="module" src="static/script.js"></script>
+</body>
+</html>
