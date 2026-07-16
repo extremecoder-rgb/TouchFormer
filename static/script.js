@@ -1,3 +1,3 @@
-// TouchGPT Academic Project Site Scripts
+// TouchFormer Academic Project Site Scripts
 // Dynamic model predictions and Plotly visualizations removed by project specification.
-console.log("TouchGPT Academic Project Site loaded.");
+console.log("TouchFormer Academic Project Site loaded.");

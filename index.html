@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TouchGPT: A Vision Transformer (ViT-B/16) based self-supervised foundation model for 3D human pose estimation from tactile pressure maps.">
-    <title>TouchGPT: Self-Supervised Foundation Model for Tactile Understanding</title>
+    <meta name="description" content="TouchFormer: A Vision Transformer (ViT-B/16) based self-supervised foundation model for 3D human pose estimation from tactile pressure maps.">
+    <title>TouchFormer: Self-Supervised Foundation Model for Tactile Understanding</title>
     <link rel="stylesheet" href="static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +14,7 @@
         <!-- Paper Header -->
         <header class="paper-header">
             <div class="paper-preprint">Technical Report & Project Page</div>
-            <h1 class="paper-title">TouchGPT: Self-Supervised Foundation Model for Tactile Understanding</h1>
+            <h1 class="paper-title">TouchFormer: Self-Supervised Foundation Model for Tactile Understanding</h1>
             
             <div class="paper-authors">
                 <div class="author-block">
@@ -28,7 +28,7 @@
             </div>
 
             <div class="paper-links">
-                <a href="https://github.com/subhra509/touchformer" class="paper-link-btn" target="_blank">
+                <a href="https://github.com/extremecoder-rgb/TouchGPT" class="paper-link-btn" target="_blank">
                     <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     Code (GitHub)
                 </a>
@@ -47,7 +47,7 @@
         <section class="abstract-container">
             <h2 class="abstract-title">Abstract</h2>
             <p class="abstract-text">
-                While computer vision has achieved immense breakthroughs via large-scale Foundation Models, tactile and physical-contact perception has historically remained restricted to task-specific architectures. We present <strong>TouchGPT</strong>, a self-supervised tactile foundation model built upon Google's Vision Transformer (ViT-B/16) architecture. By training on high-density pressure maps via a Masked Autoencoder (MAE) pretraining paradigm, TouchGPT learns generalized spatial physics and anatomical priors of the human body resting on soft surfaces without requiring annotated keypoint data. The pretrained backbone demonstrates rapid downstream convergence when fine-tuned, yielding state-of-the-art 3D human pose reconstruction and keypoint detection purely from tactile input.
+                While computer vision has achieved immense breakthroughs via large-scale Foundation Models, tactile and physical-contact perception has historically remained restricted to task-specific architectures. We present <strong>TouchFormer</strong>, a self-supervised tactile foundation model built upon Google's Vision Transformer (ViT-B/16) architecture. By training on high-density pressure maps via a Masked Autoencoder (MAE) pretraining paradigm, TouchFormer learns generalized spatial physics and anatomical priors of the human body resting on soft surfaces without requiring annotated keypoint data. The pretrained backbone demonstrates rapid downstream convergence when fine-tuned, yielding state-of-the-art 3D human pose reconstruction and keypoint detection purely from tactile input.
             </p>
         </section>
 
@@ -55,7 +55,7 @@
         <section class="section">
             <h2 class="section-title">Model Architecture & Methodology</h2>
             <p>
-                TouchGPT models contact physics by processing raw 2D tactile arrays as visual patches. To capture the complex, non-local pressure distributions of a body resting on a flexible bed, we deploy Google's <strong>Vision Transformer (ViT-B/16)</strong> backbone inside a self-supervised <strong>Masked Autoencoder (MAE)</strong> loop.
+                TouchFormer models contact physics by processing raw 2D tactile arrays as visual patches. To capture the complex, non-local pressure distributions of a body resting on a flexible bed, we deploy Google's <strong>Vision Transformer (ViT-B/16)</strong> backbone inside a self-supervised <strong>Masked Autoencoder (MAE)</strong> loop.
             </p>
 
             <div class="architecture-container">
@@ -187,7 +187,7 @@
                     </svg>
                 </div>
                 <div class="architecture-caption">
-                    <strong>Figure 1: The TouchGPT Schematic.</strong> Raw 64×27 physical pressure feeds undergo a 75% random patch masking step. The visible patches are serialized and processed by the Google ViT-B/16 encoder. In the downstream step, a lightweight linear regressor is fine-tuned to map output embeddings directly to 3D joint coordinates (24 anatomical nodes).
+                    <strong>Figure 1: The TouchFormer Schematic.</strong> Raw 64×27 physical pressure feeds undergo a 75% random patch masking step. The visible patches are serialized and processed by the Google ViT-B/16 encoder. In the downstream step, a lightweight linear regressor is fine-tuned to map output embeddings directly to 3D joint coordinates (24 anatomical nodes).
                 </div>
             </div>
 
@@ -207,7 +207,7 @@
         <section class="section">
             <h2 class="section-title">Evaluation & Results</h2>
             <p>
-                TouchGPT was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed the effects of pretraining initialization strategies to understand whether continued masking pretraining on pressure maps outperforms standard ImageNet representations.
+                TouchFormer was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed the effects of pretraining initialization strategies to understand whether continued masking pretraining on pressure maps outperforms standard ImageNet representations.
             </p>
 
             <div class="table-wrapper">
@@ -244,7 +244,7 @@
                             <td>86.7%</td>
                         </tr>
                         <tr style="font-weight: 600;">
-                            <td>TouchGPT (Ours)</td>
+                            <td>TouchFormer (Ours)</td>
                             <td>Google ViT-B/16 (ImageNet)</td>
                             <td>MAE (Continued on Pressure)</td>
                             <td>6.29</td>
@@ -285,12 +285,12 @@
         <!-- BibTeX Citation -->
         <section class="section citation-section">
             <h2 class="section-title">Citation & Bibliography</h2>
-            <p>If you use TouchGPT or the underlying evaluation baselines in your research, please cite our technical work:</p>
+            <p>If you use TouchFormer or the underlying evaluation baselines in your research, please cite our technical work:</p>
             
             <div class="bibtex-wrapper">
                 <button class="copy-btn" id="copy-btn">Copy BibTeX</button>
-                <code class="bibtex-code" id="bibtex-code">@article{subhra2026touchgpt,
-  title={TouchGPT: Self-Supervised Foundation Model for Tactile Understanding},
+                <code class="bibtex-code" id="bibtex-code">@article{subhra2026touchformer,
+  title={TouchFormer: Self-Supervised Foundation Model for Tactile Understanding},
   author={Subhra, S. and Google ViT-B/16 Integration Group},
   journal={arXiv preprint arXiv:2607.01166},
   year={2026}
@@ -307,7 +307,7 @@
 
         <!-- Footer -->
         <footer>
-            <p>TouchGPT — Built with Google's ViT-B/16 & ImageNet Backbone.</p>
+            <p>TouchFormer — Built with Google's ViT-B/16 & ImageNet Backbone.</p>
             <p>Project hosted on Render & HuggingFace Spaces.</p>
         </footer>
     </div>
