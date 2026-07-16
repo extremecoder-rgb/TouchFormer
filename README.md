@@ -1,4 +1,4 @@
-# TouchFormer: Self-Supervised Foundation Model for Human Body Understanding from Pressure Maps
+# Self-Supervised Foundation Model for Human Body Understanding from Pressure Maps
 
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://touchformer.onrender.com/)
 [![Model Space](https://img.shields.io/badge/HuggingFace-Spaces-yellow)](https://huggingface.co/spaces/subhra509/touchformer)
@@ -7,7 +7,7 @@
 
 ## Overview
 
-**TouchFormer** is a self-supervised Vision Transformer (ViT-B/16) based foundation model designed for accurate 3D human pose and shape estimation from tactile pressure maps. Unlike vision-centric models that rely on optical sensors, TouchFormer processes non-optical physical pressure grids (64×27 force-resistive matrices from smart mattresses) to understand human body contact and pose.
+**TouchFormer** is a self-supervised Vision Transformer based foundation model designed for accurate 3D human pose and shape estimation from tactile pressure maps. Unlike vision-centric models that rely on optical sensors, TouchFormer processes non-optical physical pressure grids (64×27 force-resistive matrices from smart mattresses) to understand human body contact and pose.
 
 This project bridges the gap between computer vision's foundation models success and the underexplored tactile perception domain, enabling contact-based human understanding for applications in healthcare, smart furniture, and embodied AI.
 
@@ -42,17 +42,6 @@ TouchFormer leverages:
 
 ---
 
-## Project Structure
-
-```
-TouchFormer/
-├── index.html              # Main academic project page (25KB HTML)
-├── static/
-│   ├── style.css           # Academic typography & responsive styling
-│   ├── script.js           # Minimal UI utilities (BibTeX copy, etc.)
-│   └── teaser.jpg          # Project teaser visualization
-└── README.md               # This file
-```
 
 ### Architecture Overview
 
@@ -70,23 +59,6 @@ TouchFormer/
 4. Predict 3D skeleton directly from full pressure map
 
 ---
-
-## How to Run
-
-### View the Project
-The repository serves a static academic project page:
-
-```bash
-# Clone the repository
-git clone https://github.com/extremecoder-rgb/TouchFormer.git
-cd TouchFormer
-
-# Serve locally (using Python)
-python -m http.server 8000
-
-# Open in browser
-# http://localhost:8000
-```
 
 ### Access Online
 - **Project Page:** [touchformer.onrender.com](https://touchformer.onrender.com/)
