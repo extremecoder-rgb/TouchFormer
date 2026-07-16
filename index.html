@@ -3,56 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TouchGPT | Healthcare Dashboard</title>
+    <title>TouchGPT | AI Foundation Model</title>
     <link rel="stylesheet" href="static/style.css">
-    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="landing-theme">
     <nav class="navbar">
         <div class="logo">TouchGPT Foundation</div>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">Hospital Dashboard</a></li>
-            <li><a href="robot.html">Robotics Simulator</a></li>
+            <li><a href="index.html" class="active">Our Research</a></li>
+            <li><a href="hospital.html">Healthcare</a></li>
+            <li><a href="robot.html">Robotics</a></li>
         </ul>
     </nav>
 
-    <div class="dashboard">
-        <header>
-            <h1>Intensive Care Monitor</h1>
-            <p>Real-time 3D Anatomical Keypoint Detection via Pressure Mapping</p>
-            <button id="predict-btn" class="glow-on-hover">Simulate Patient</button>
+    <div class="landing-container">
+        <header class="hero">
+            <h1 class="gradient-text">Teaching AI to Feel</h1>
+            <p class="subtitle">A Vision Transformer (ViT-B/16) foundation model for 3D human pose estimation purely from tactile pressure maps.</p>
+            <div class="cta-buttons">
+                <a href="hospital.html" class="btn primary-btn">Launch Healthcare Simulation</a>
+                <a href="robot.html" class="btn secondary-btn">View Robotics Application</a>
+            </div>
         </header>
 
-        <div class="panels">
-            <div class="panel glass">
-                <h2>Raw Pressure Input (64x27)</h2>
-                <div id="heatmap-container">
-                    <p class="placeholder">Click 'Simulate Patient' to begin...</p>
-                </div>
-            </div>
-
-            <div class="panel glass">
-                <h2>TouchGPT 3D Skeleton</h2>
-                <div id="skeleton-container">
-                    <p class="placeholder">Waiting for AI Prediction...</p>
-                </div>
-            </div>
+        <section class="story-section glass">
+            <h2>The Challenge: Beyond Vision</h2>
+            <p>Most AI models rely heavily on computer vision. However, in scenarios like intensive care monitoring or robotic manipulation, visual data is often occluded (e.g., a patient covered by a blanket). <strong>TouchGPT</strong> bridges this gap by translating raw tactile pressure data into complete 3D spatial awareness.</p>
             
-            <div class="panel glass side-panel">
-                <h2>Alerts</h2>
-                <div id="alert-box" class="alert safe">
-                    Monitoring Active...
+            <div class="architecture-grid">
+                <div class="arch-card">
+                    <h3>1. Sensory Input</h3>
+                    <p>We utilize a high-density tactile matrix (64x27 resolution) simulating a smart hospital bed or robotic skin. To demonstrate inference latency on the live website, the UI currently injects continuous noise simulations directly into the neural network.</p>
                 </div>
-                <div class="metrics">
-                    <p>Model: ViT-Base (Experiment A)</p>
-                    <p>MPJPE: 6.29 cm</p>
+                <div class="arch-card">
+                    <h3>2. Transformer Backbone</h3>
+                    <p>The core of TouchGPT is a modified <strong>ViT-B/16</strong> architecture. It processes the pressure maps as non-overlapping patches, learning complex spatial correlations between pressure points without relying on any RGB cameras.</p>
+                </div>
+                <div class="arch-card">
+                    <h3>3. 3D Anatomical Output</h3>
+                    <p>The model decodes the transformer embeddings into 24 distinct 3D anatomical keypoints (72 dimensions), successfully reconstructing the precise posture and spatial orientation of the subject.</p>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- We import our script as type="module" to enable import from CDN -->
-    <script type="module" src="static/script.js"></script>
+        <section class="metrics-section glass">
+            <h2>Model Performance & Architecture Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <span class="metric-number">ViT-B/16</span>
+                    <span class="metric-label">Backbone Architecture</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-number">11</span>
+                    <span class="metric-label">Training Epochs Completed</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-number">6.29 cm</span>
+                    <span class="metric-label">Mean Per Joint Position Error (MPJPE)</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-number">24</span>
+                    <span class="metric-label">3D Joints Reconstructed</span>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

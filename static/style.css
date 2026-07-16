@@ -167,3 +167,157 @@ header p {
     background: #34d399;
     box-shadow: 0 0 15px #10b981;
 }
+/* ---------- Landing Page Styles ---------- */
+.landing-theme {
+    background: radial-gradient(circle at top center, #111827 0%, #030712 100%);
+    overflow-y: auto;
+}
+
+.landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 100px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.gradient-text {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #9ca3af;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.primary-btn:hover {
+    background: #2563eb;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #4b5563;
+}
+
+.secondary-btn:hover {
+    background: #1f2937;
+    border-color: #6b7280;
+}
+
+.story-section {
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 12px;
+}
+
+.story-section h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.story-section p {
+    color: #d1d5db;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.arch-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.arch-card h3 {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.arch-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    color: #9ca3af;
+}
+
+.metrics-section {
+    padding: 3rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.metrics-section h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2.5rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.metric-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #a78bfa;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    color: #9ca3af;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

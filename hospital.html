@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouchGPT | Healthcare Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TouchGPT Foundation</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Our Research</a></li>
+            <li><a href="hospital.html" class="active">Healthcare</a></li>
+            <li><a href="robot.html">Robotics</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard">
+        <header>
+            <h1>Intensive Care Monitor</h1>
+            <p>Real-time 3D Anatomical Keypoint Detection via Pressure Mapping</p>
+            <button id="predict-btn" class="glow-on-hover">Simulate Patient</button>
+        </header>
+
+        <div class="panels">
+            <div class="panel glass">
+                <h2>Raw Pressure Input (64x27)</h2>
+                <div id="heatmap-container">
+                    <p class="placeholder">Click 'Simulate Patient' to begin...</p>
+                </div>
+            </div>
+
+            <div class="panel glass">
+                <h2>TouchGPT 3D Skeleton</h2>
+                <div id="skeleton-container">
+                    <p class="placeholder">Waiting for AI Prediction...</p>
+                </div>
+            </div>
+            
+            <div class="panel glass side-panel">
+                <h2>Alerts</h2>
+                <div id="alert-box" class="alert safe">
+                    Monitoring Active...
+                </div>
+                <div class="metrics">
+                    <p>Model: ViT-Base (Experiment A)</p>
+                    <p>MPJPE: 6.29 cm</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- We import our script as type="module" to enable import from CDN -->
+    <script type="module" src="static/script.js"></script>
+</body>
+</html>
