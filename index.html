@@ -22,10 +22,6 @@
                     <span class="author-name">Subhranil Mondal</span>
                     <span class="author-affiliation">Independent Researcher</span>
                 </div>
-                <div class="author-block">
-                    <span class="author-name">Google ViT-B/16 Integration</span>
-                    <span class="author-affiliation">ImageNet Initialization Framework</span>
-                </div>
             </div>
 
             <div class="paper-links">
@@ -70,121 +66,152 @@
             <div class="architecture-container">
                 <div class="architecture-diagram">
                     <!-- Inline SVG representing the TouchGPT flow -->
-                    <svg width="100%" height="220" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="100%" height="340" viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg">
                         <!-- Background -->
                         <rect width="100%" height="100%" fill="#FFFFFF" rx="4" />
                         
+                        <!-- ================= PHASE 1: PRE-TRAINING ================= -->
+                        <!-- Section Label -->
+                        <text x="20" y="30" font-family="Lora" font-size="13" font-weight="bold" fill="#8C6239">Phase 1: Self-Supervised MAE Pre-Training (Random Init)</text>
+                        
                         <!-- Input Pressure Map -->
-                        <g transform="translate(20, 40)">
-                            <rect x="0" y="0" width="70" height="120" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
-                            <!-- Simulated matrix grid -->
-                            <line x1="14" y1="0" x2="14" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="28" y1="0" x2="28" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="42" y1="0" x2="42" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="56" y1="0" x2="56" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            
-                            <line x1="0" y1="24" x2="70" y2="24" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="48" x2="70" y2="48" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="72" x2="70" y2="72" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="96" x2="70" y2="96" stroke="#FAF8F5" stroke-width="1" />
-                            
-                            <!-- Pressure heatmap blob visual -->
-                            <ellipse cx="35" cy="60" rx="20" ry="40" fill="#8C6239" opacity="0.6" />
-                            <text x="35" y="135" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">Tactile Map (64×27)</text>
+                        <g transform="translate(40, 50)">
+                            <rect x="0" y="0" width="50" height="80" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
+                            <ellipse cx="25" cy="40" rx="15" ry="28" fill="#8C6239" opacity="0.6" />
+                            <text x="25" y="95" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E" font-weight="600">Tactile Map</text>
                         </g>
 
-                        <!-- Arrow 1 -->
-                        <g transform="translate(100, 90)">
-                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
+                        <!-- Arrow 1-1 -->
+                        <g transform="translate(100, 80)">
+                            <line x1="0" y1="10" x2="30" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
                         </g>
 
                         <!-- Masking Step -->
-                        <g transform="translate(145, 40)">
-                            <rect x="0" y="0" width="70" height="120" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
-                            <!-- Grids -->
-                            <line x1="14" y1="0" x2="14" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="28" y1="0" x2="28" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="42" y1="0" x2="42" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="56" y1="0" x2="56" y2="120" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="24" x2="70" y2="24" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="48" x2="70" y2="48" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="72" x2="70" y2="72" stroke="#FAF8F5" stroke-width="1" />
-                            <line x1="0" y1="96" x2="70" y2="96" stroke="#FAF8F5" stroke-width="1" />
-                            <ellipse cx="35" cy="60" rx="20" ry="40" fill="#8C6239" opacity="0.6" />
-                            <!-- Masked blocks (75% patches removed) -->
-                            <rect x="0" y="0" width="14" height="24" fill="#57534E" opacity="0.85" />
-                            <rect x="28" y="0" width="28" height="48" fill="#57534E" opacity="0.85" />
-                            <rect x="0" y="72" width="42" height="24" fill="#57534E" opacity="0.85" />
-                            <rect x="42" y="96" width="28" height="24" fill="#57534E" opacity="0.85" />
-                            <rect x="14" y="48" width="28" height="24" fill="#57534E" opacity="0.85" />
-                            <text x="35" y="135" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">75% MAE Masking</text>
+                        <g transform="translate(140, 50)">
+                            <rect x="0" y="0" width="50" height="80" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
+                            <ellipse cx="25" cy="40" rx="15" ry="28" fill="#8C6239" opacity="0.6" />
+                            <!-- Masked blocks -->
+                            <rect x="0" y="0" width="10" height="16" fill="#57534E" opacity="0.85" />
+                            <rect x="20" y="0" width="20" height="32" fill="#57534E" opacity="0.85" />
+                            <rect x="0" y="48" width="30" height="16" fill="#57534E" opacity="0.85" />
+                            <rect x="30" y="64" width="20" height="16" fill="#57534E" opacity="0.85" />
+                            <text x="25" y="95" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E" font-weight="600">75% Masking</text>
                         </g>
 
-                        <!-- Arrow 2 -->
-                        <g transform="translate(225, 90)">
-                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" />
+                        <!-- Arrow 1-2 -->
+                        <g transform="translate(200, 80)">
+                            <line x1="0" y1="10" x2="30" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
                         </g>
 
                         <!-- ViT Encoder -->
-                        <g transform="translate(270, 50)">
-                            <rect x="0" y="0" width="160" height="100" fill="#FAF8F5" stroke="#8C6239" stroke-width="2" rx="4" />
-                            <rect x="10" y="10" width="140" height="20" fill="#E7E1D3" rx="2" />
-                            <text x="80" y="24" font-family="Lora" font-size="11" font-weight="bold" text-anchor="middle" fill="#1C1917">Google ViT-B/16</text>
+                        <g transform="translate(240, 50)">
+                            <rect x="0" y="0" width="130" height="80" fill="#FAF8F5" stroke="#8C6239" stroke-width="2" rx="4" />
+                            <rect x="10" y="10" width="110" height="20" fill="#E7E1D3" rx="2" />
+                            <text x="65" y="24" font-family="Lora" font-size="10" font-weight="bold" text-anchor="middle" fill="#1C1917">ViT-B/16 Encoder</text>
                             
-                            <rect x="10" y="40" width="140" height="20" fill="#E7E1D3" rx="2" />
-                            <text x="80" y="54" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E">Linear Patch Projection</text>
-
-                            <rect x="10" y="70" width="140" height="20" fill="#E7E1D3" rx="2" />
-                            <text x="80" y="84" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E">12x Transformer Blocks</text>
+                            <rect x="10" y="35" width="110" height="18" fill="#E7E1D3" rx="2" />
+                            <text x="65" y="47" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E">Visible Patches Only</text>
                             
-                            <text x="80" y="165" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">ImageNet Initialized Encoder</text>
+                            <rect x="10" y="56" width="110" height="18" fill="#E7E1D3" rx="2" />
+                            <text x="65" y="68" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E">Transformer Blocks</text>
                         </g>
 
-                        <!-- Arrow 3 -->
-                        <g transform="translate(440, 90)">
-                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" />
+                        <!-- Arrow 1-3 -->
+                        <g transform="translate(380, 80)">
+                            <line x1="0" y1="10" x2="30" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
                         </g>
 
-                        <!-- Downstream Keypoint Prediction -->
-                        <g transform="translate(485, 45)">
-                            <!-- Keypoint Head box -->
-                            <rect x="0" y="0" width="130" height="110" fill="#F5F0E6" stroke="#8C6239" stroke-width="1.5" rx="4" />
-                            <text x="65" y="22" font-family="Lora" font-size="11" font-weight="bold" text-anchor="middle" fill="#1C1917">Downstream Heads</text>
+                        <!-- ViT Decoder -->
+                        <g transform="translate(420, 50)">
+                            <rect x="0" y="0" width="130" height="80" fill="#FAF8F5" stroke="#8C6239" stroke-width="1.5" rx="4" />
+                            <rect x="10" y="10" width="110" height="20" fill="#F5F0E6" rx="2" />
+                            <text x="65" y="24" font-family="Lora" font-size="10" font-weight="bold" text-anchor="middle" fill="#1C1917">ViT Decoder</text>
                             
-                            <rect x="10" y="35" width="110" height="20" fill="#FFFFFF" stroke="#E7E1D3" rx="2" />
-                            <text x="65" y="48" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E">Posture Classifier</text>
+                            <rect x="10" y="35" width="110" height="18" fill="#F5F0E6" rx="2" />
+                            <text x="65" y="47" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E">All Patches + Mask Tokens</text>
                             
-                            <rect x="10" y="65" width="110" height="30" fill="#FFFFFF" stroke="#8C6239" stroke-width="1" rx="2" />
-                            <text x="65" y="77" font-family="Inter" font-size="9" font-weight="bold" text-anchor="middle" fill="#8C6239">Linear Keypoint Head</text>
-                            <text x="65" y="88" font-family="Inter" font-size="8" text-anchor="middle" fill="#57534E">72-dim Output (24 × 3D)</text>
-                            <text x="65" y="170" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">Supervised Fine-Tuning</text>
+                            <rect x="10" y="56" width="110" height="18" fill="#F5F0E6" rx="2" />
+                            <text x="65" y="68" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E">Reconstruct Pixels</text>
                         </g>
 
-                        <!-- Arrow 4 -->
-                        <g transform="translate(625, 90)">
-                            <line x1="0" y1="10" x2="35" y2="10" stroke="#8C6239" stroke-width="1.5" />
+                        <!-- Arrow 1-4 -->
+                        <g transform="translate(560, 80)">
+                            <line x1="0" y1="10" x2="30" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
                         </g>
 
-                        <!-- Output 3D skeleton -->
-                        <g transform="translate(670, 50)">
-                            <rect x="0" y="0" width="110" height="100" fill="#FFFFFF" stroke="#8C6239" stroke-width="1.5" rx="4" />
-                            <!-- Simulated skeletal nodes -->
-                            <circle cx="55" cy="20" r="4" fill="#8C6239" />
-                            <circle cx="55" cy="40" r="3" fill="#8C6239" />
-                            <circle cx="40" cy="55" r="3" fill="#8C6239" />
-                            <circle cx="70" cy="55" r="3" fill="#8C6239" />
-                            <circle cx="55" cy="65" r="3" fill="#8C6239" />
-                            <circle cx="45" cy="85" r="3" fill="#8C6239" />
-                            <circle cx="65" cy="85" r="3" fill="#8C6239" />
+                        <!-- Reconstructed Map -->
+                        <g transform="translate(600, 50)">
+                            <rect x="0" y="0" width="50" height="80" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
+                            <ellipse cx="25" cy="40" rx="15" ry="28" fill="#8C6239" opacity="0.6" />
+                            <text x="25" y="95" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E" font-weight="600">Reconstructed</text>
+                        </g>
+
+
+                        <!-- ================= PHASE 2: FINE-TUNING ================= -->
+                        <!-- Section Label -->
+                        <text x="20" y="185" font-family="Lora" font-size="13" font-weight="bold" fill="#8C6239">Phase 2: Downstream Fine-Tuning & Pose Inference</text>
+
+                        <!-- Input Pressure Map (Unmasked) -->
+                        <g transform="translate(40, 205)">
+                            <rect x="0" y="0" width="50" height="80" fill="#E7E1D3" stroke="#8C6239" stroke-width="1.5" rx="3" />
+                            <ellipse cx="25" cy="40" rx="15" ry="28" fill="#8C6239" opacity="0.6" />
+                            <text x="25" y="95" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E" font-weight="600">Tactile Map (100%)</text>
+                        </g>
+
+                        <!-- Arrow 2-1 -->
+                        <g transform="translate(100, 235)">
+                            <line x1="0" y1="10" x2="130" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
+                        </g>
+
+                        <!-- Pretrained ViT Encoder -->
+                        <g transform="translate(240, 205)">
+                            <rect x="0" y="0" width="130" height="80" fill="#FAF8F5" stroke="#8C6239" stroke-width="2" rx="4" />
+                            <rect x="10" y="10" width="110" height="20" fill="#E7E1D3" rx="2" />
+                            <text x="65" y="24" font-family="Lora" font-size="10" font-weight="bold" text-anchor="middle" fill="#1C1917">ViT-B/16 Encoder</text>
                             
-                            <!-- skeletal lines -->
-                            <line x1="55" y1="20" x2="55" y2="65" stroke="#8C6239" stroke-width="1" />
-                            <line x1="55" y1="40" x2="40" y2="55" stroke="#8C6239" stroke-width="1" />
-                            <line x1="55" y1="40" x2="70" y2="55" stroke="#8C6239" stroke-width="1" />
-                            <line x1="55" y1="65" x2="45" y2="85" stroke="#8C6239" stroke-width="1" />
-                            <line x1="55" y1="65" x2="65" y2="85" stroke="#8C6239" stroke-width="1" />
+                            <rect x="10" y="35" width="110" height="36" fill="#E7E1D3" rx="2" />
+                            <text x="65" y="47" font-family="Inter" font-size="8.5" text-anchor="middle" fill="#57534E" font-weight="600">Initialized from:</text>
+                            <text x="65" y="58" font-family="Inter" font-size="8.5" text-anchor="middle" fill="#8C6239" font-weight="bold">MAE or ImageNet</text>
+                        </g>
+
+                        <!-- Arrow 2-2 -->
+                        <g transform="translate(380, 235)">
+                            <line x1="0" y1="10" x2="30" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
+                        </g>
+
+                        <!-- Downstream Keypoint Head -->
+                        <g transform="translate(420, 205)">
+                            <rect x="0" y="0" width="130" height="80" fill="#F5F0E6" stroke="#8C6239" stroke-width="1.5" rx="4" />
+                            <text x="65" y="22" font-family="Lora" font-size="10" font-weight="bold" text-anchor="middle" fill="#1C1917">Downstream Head</text>
                             
-                            <text x="55" y="165" font-family="Inter" font-size="10" text-anchor="middle" fill="#57534E" font-weight="600">3D Pose Model</text>
+                            <rect x="10" y="35" width="110" height="35" fill="#FFFFFF" stroke="#8C6239" stroke-width="1" rx="2" />
+                            <text x="65" y="47" font-family="Inter" font-size="8.5" font-weight="bold" text-anchor="middle" fill="#8C6239">Linear Keypoint Head</text>
+                            <text x="65" y="58" font-family="Inter" font-size="7.5" text-anchor="middle" fill="#57534E">72-dim Output (24 × 3D)</text>
+                        </g>
+
+                        <!-- Arrow 2-3 -->
+                        <g transform="translate(560, 235)">
+                            <line x1="0" y1="10" x2="30" y2="10" stroke="#8C6239" stroke-width="1.5" marker-end="url(#arrow)" />
+                        </g>
+
+                        <!-- Output 3D Skeleton -->
+                        <g transform="translate(600, 205)">
+                            <rect x="0" y="0" width="110" height="80" fill="#FFFFFF" stroke="#8C6239" stroke-width="1.5" rx="4" />
+                            <!-- Skeletal lines -->
+                            <line x1="55" y1="10" x2="55" y2="50" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="25" x2="40" y2="35" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="25" x2="70" y2="35" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="50" x2="45" y2="68" stroke="#8C6239" stroke-width="1" />
+                            <line x1="55" y1="50" x2="65" y2="68" stroke="#8C6239" stroke-width="1" />
+                            <!-- Nodes -->
+                            <circle cx="55" cy="10" r="3.5" fill="#8C6239" />
+                            <circle cx="55" cy="25" r="2.5" fill="#8C6239" />
+                            <circle cx="40" cy="35" r="2.5" fill="#8C6239" />
+                            <circle cx="70" cy="35" r="2.5" fill="#8C6239" />
+                            <circle cx="55" cy="50" r="2.5" fill="#8C6239" />
+                            <circle cx="45" cy="68" r="2.5" fill="#8C6239" />
+                            <circle cx="65" cy="68" r="2.5" fill="#8C6239" />
+                            <text x="55" y="95" font-family="Inter" font-size="9" text-anchor="middle" fill="#57534E" font-weight="600">3D Pose Model</text>
                         </g>
 
                         <!-- Marker definition for arrows -->
@@ -196,7 +223,7 @@
                     </svg>
                 </div>
                 <div class="architecture-caption">
-                    <strong>Figure 1: The TouchFormer Schematic.</strong> Raw 64×27 physical pressure feeds undergo a 75% random patch masking step. The visible patches are serialized and processed by the Google ViT-B/16 encoder. In the downstream step, a lightweight linear regressor is fine-tuned to map output embeddings directly to 3D joint coordinates (24 anatomical nodes).
+                    <strong>Figure 2: The TouchFormer Architecture.</strong> Phase 1 (top): Self-supervised MAE pretraining masks 75% of the tactile map patches and reconstructs them using an encoder-decoder architecture. Phase 2 (bottom): For pose estimation, the encoder is initialized with pre-trained weights (MAE or ImageNet) and receives the entire, unmasked tactile map to regress 3D keypoints.
                 </div>
             </div>
 
@@ -216,7 +243,7 @@
         <section class="section">
             <h2 class="section-title">Evaluation & Results</h2>
             <p>
-                TouchFormer was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed the effects of pretraining initialization strategies to understand whether continued masking pretraining on pressure maps outperforms standard ImageNet representations.
+                TouchFormer was evaluated on the 10GB <em>PressurePose</em> corpus. We analyzed different pretraining and weight initialization strategies to understand whether self-supervised pretraining on pressure maps from scratch compares to or outperforms standard ImageNet representations.
             </p>
 
             <div class="table-wrapper">
@@ -261,14 +288,12 @@
 
             <h3>Key Takeaways</h3>
             <p>
-                1. <strong>Transfer Learning Benefits:</strong> Initializing the tactile encoder with weights from Google's ImageNet-trained ViT-B/16 yields a dramatic performance improvement over training a pressure-specific transformer from scratch.
+                1. <strong>Transfer Learning Benefits:</strong> Initializing the tactile encoder with weights from Google's ImageNet-1k trained ViT-B/16 (Experiment A - Ours) yields the best SOTA error rate of <strong>6.29 cm MPJPE</strong>, showing that visual features transfer exceptionally well to physical contact matrices.
             </p>
             <p>
-                2. <strong>Physical Domain Adaptation:</strong> Continuing MAE pretraining on the 64×27 pressure grid (Ours) adapts the visual features to physical pressure distribution vectors, resulting in our best SOTA error rate of <strong>6.29 cm MPJPE</strong>.
+                2. <strong>Self-Supervised Tactile Priors:</strong> Training purely on pressure maps from scratch using the Masked Autoencoder objective (Experiment B) yields a highly competitive <strong>6.91 cm MPJPE</strong>, significantly outperforming the supervised CNN baseline (7.75 cm MPJPE) without using any labeled 3D keypoint data.
             </p>
         </section>
-
-
 
         <!-- BibTeX Citation -->
         <section class="section citation-section">
@@ -277,9 +302,9 @@
             
             <div class="bibtex-wrapper">
                 <button class="copy-btn" id="copy-btn">Copy BibTeX</button>
-                <code class="bibtex-code" id="bibtex-code">@article{subhra2026touchformer,
+                <code class="bibtex-code" id="bibtex-code">@article{mondal2026touchformer,
   title={TouchFormer: Self-Supervised Foundation Model for Tactile Understanding},
-  author={Subhra, S. and Google ViT-B/16 Integration Group},
+  author={Mondal, Subhranil},
   journal={arXiv preprint arXiv:2607.01166},
   year={2026}
 }
