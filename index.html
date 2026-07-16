@@ -232,32 +232,25 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>CNN Baseline (ResNet-50)</td>
+                            <td>CNN Baseline (Clever et al., CVPR 2020)</td>
                             <td>Random Init</td>
                             <td>None (Supervised Only)</td>
-                            <td>8.45</td>
-                            <td>78.1%</td>
+                            <td>7.75</td>
+                            <td>&mdash;</td>
                         </tr>
                         <tr>
-                            <td>Pressure-MAE (Scratch)</td>
+                            <td>TouchFormer (Custom MAE - Exp B)</td>
                             <td>Random Init</td>
                             <td>MAE (Pressure Maps Only)</td>
-                            <td>7.12</td>
-                            <td>82.4%</td>
-                        </tr>
-                        <tr>
-                            <td>Google ViT-B/16 (ImageNet)</td>
-                            <td>ImageNet-1k Weights</td>
-                            <td>None (Direct Fine-Tuning)</td>
-                            <td>6.54</td>
-                            <td>86.7%</td>
+                            <td>6.91</td>
+                            <td>90.8%</td>
                         </tr>
                         <tr style="font-weight: 600;">
-                            <td>TouchFormer (Ours)</td>
-                            <td>Google ViT-B/16 (ImageNet)</td>
-                            <td>MAE (Continued on Pressure)</td>
+                            <td>TouchFormer (ImageNet Transfer - Exp A - Ours)</td>
+                            <td>ImageNet-1k Weights</td>
+                            <td>None (Direct Fine-Tuning)</td>
                             <td>6.29</td>
-                            <td>89.4%</td>
+                            <td>92.8%</td>
                         </tr>
                     </tbody>
                 </table>
