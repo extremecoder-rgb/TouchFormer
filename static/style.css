@@ -83,6 +83,20 @@ p {
     margin-bottom: 1.2rem;
 }
 
+.paper-title {
+    margin-bottom: 0.5rem;
+}
+
+.paper-subtitle {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
 .paper-authors {
     margin: 1.5rem 0;
     font-size: 1.1rem;
