@@ -1,5 +1,26 @@
 import { Client } from "https://cdn.jsdelivr.net/npm/@gradio/client@1.3.0/dist/index.js";
 
+// HACK: HuggingFace Spaces block CORS requests that include credentials. 
+// We intercept the browser's fetch function to force 'omit' credentials for all HF requests, 
+// completely bypassing the CORS error!
+const originalFetch = window.fetch;
+window.fetch = async function(resource, init) {
+    let url = '';
+    if (typeof resource === 'string') url = resource;
+    else if (resource instanceof URL) url = resource.href;
+    else if (resource instanceof Request) url = resource.url;
+
+    if (url.includes('hf.space')) {
+        init = init || {};
+        init.credentials = 'omit'; // This tells the browser NOT to ask for the strict Credentials header
+        
+        if (resource instanceof Request) {
+            resource = new Request(resource, { credentials: 'omit' });
+        }
+    }
+    return originalFetch(resource, init);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("predict-btn");
     
