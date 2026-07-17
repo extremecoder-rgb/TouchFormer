@@ -1,7 +1,7 @@
 # Self-Supervised Foundation Model for Human Body Understanding from Pressure Maps
 
 [![Project Page](https://img.shields.io/badge/Project-Page-blue)](https://touchformer.onrender.com/)
-[![Model Space](https://img.shields.io/badge/HuggingFace-Spaces-yellow)](https://huggingface.co/spaces/subhra509/touchformer)
+
 [![GitHub](https://img.shields.io/badge/Code-GitHub-black)](https://github.com/extremecoder-rgb/TouchGPT)
 [![arXiv](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2004.01166)
 
@@ -62,7 +62,6 @@ TouchFormer leverages:
 
 ### Access Online
 - **Project Page:** [touchformer.onrender.com](https://touchformer.onrender.com/)
-- **Interactive Model:** [HuggingFace Spaces](https://huggingface.co/spaces/subhra509/touchformer)
 
 ---
 
@@ -110,7 +109,7 @@ Despite academic compute constraints:
 | **Styling** | Custom design with warm academic aesthetic (CSS Variables) |
 | **Fonts** | Inter (sans-serif), Lora (serif) from Google Fonts |
 | **Architecture** | SVG diagrams, responsive tables, feature cards |
-| **Hosting** | Render (project page), HuggingFace Spaces (model) |
+| **Hosting** | Render (project page) |
 
 ---
 
@@ -148,7 +147,6 @@ If you use TouchFormer in your research, please cite:
 
 - **Project Page:** [touchformer.onrender.com](https://touchformer.onrender.com/) — Full technical report, architecture diagrams, and evaluation results
 - **Code Repository:** [github.com/extremecoder-rgb/TouchGPT](https://github.com/extremecoder-rgb/TouchGPT) — Training code and model weights
-- **Interactive Demo:** [HuggingFace Spaces](https://huggingface.co/spaces/subhra509/touchformer) — Try predictions on sample pressure maps
 - **Baseline Paper:** [arXiv:2004.01166](https://arxiv.org/abs/2004.01166) — Clever et al. CNN baseline
 
 ---
@@ -174,7 +172,7 @@ Built with:
 - **Masked Autoencoder (MAE)** pretraining methodology
 - Inspired by **Sparsh** (Meta AI) and **Clever et al.** (CVPR 2020)
 
-Hosted on Render & HuggingFace Spaces.
+Hosted on Render.
 
 ---
 
