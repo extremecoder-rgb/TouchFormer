@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TouchFormer: A Vision Transformer (ViT-B/16) based self-supervised foundation model for 3D human pose estimation from tactile pressure maps.">
-    <title>TouchFormer: Self-Supervised Foundation Model for Tactile Understanding</title>
+    <meta name="description" content="TouchFormer: A study evaluating transfer learning and self-supervised MAE for 3D human pose estimation from physical pressure maps using ViT-B/16.">
+    <title>TouchFormer: Transfer Learning &amp; Self-Supervised MAE for Pressure-Based Pose Estimation</title>
     <link rel="stylesheet" href="static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
         <header class="paper-header">
             <div class="paper-preprint">Technical Report & Project Page</div>
             <h1 class="paper-title">TouchFormer</h1>
-            <h2 class="paper-subtitle">Self-Supervised Foundation Model for Tactile Understanding</h2>
+            <h2 class="paper-subtitle">Evaluating Transfer Learning &amp; Self-Supervised MAE for Pressure-Based Human Pose Estimation</h2>
             
             <div class="paper-authors">
                 <div class="author-block">
@@ -49,7 +49,7 @@
         <section class="abstract-container">
             <h2 class="abstract-title">Abstract</h2>
             <p class="abstract-text">
-                While computer vision has achieved immense breakthroughs via large-scale Foundation Models, tactile and physical-contact perception has historically remained restricted to task-specific architectures. We present <strong>TouchFormer</strong>, a self-supervised tactile foundation model built upon Google's Vision Transformer (ViT-B/16) architecture. By training on high-density pressure maps via a Masked Autoencoder (MAE) pretraining paradigm, TouchFormer learns generalized spatial physics and anatomical priors of the human body resting on soft surfaces without requiring annotated keypoint data. The pretrained backbone demonstrates rapid downstream convergence when fine-tuned, yielding state-of-the-art 3D human pose reconstruction and keypoint detection purely from tactile input.
+                Tactile and physical-contact perception has historically been restricted to task-specific CNN architectures. We present <strong>TouchFormer</strong>, a Vision Transformer (ViT-B/16) framework for 3D human pose estimation from physical pressure maps. Through two independent experiments, we investigate whether transformer pretraining strategies — (A) cross-domain transfer from ImageNet, and (B) self-supervised Masked Autoencoder (MAE) pretraining on unlabeled pressure data — can substantially outperform the supervised CNN baseline. Both strategies yield significant improvements over the prior CNN baseline, with the MAE result being particularly notable given its training under severe compute constraints.
             </p>
         </section>
 
@@ -57,10 +57,10 @@
         <section class="section">
             <h2 class="section-title">Related Work & Scientific Novelty</h2>
             <p>
-                Self-supervised learning (SSL) has recently emerged as a powerful paradigm in the tactile domain. Most notably, frameworks like <strong>Sparsh (Meta AI, 2024)</strong> have pioneered general-purpose touch representations for <em>vision-based</em> tactile sensors (e.g., GelSight, DIGIT) by pre-training on 460k+ optical gel-deformation images using self-distillation and masking techniques.
+                Self-supervised learning has gained significant traction in tactile representation learning. Most notably, <strong>Sparsh (Meta AI, 2024)</strong> demonstrated large-scale general-purpose touch representations for <em>vision-based</em> tactile sensors (e.g., GelSight, DIGIT), pre-training on 460k+ optical gel-deformation images using masking objectives and self-distillation in pixel and latent spaces.
             </p>
             <p>
-                In contrast, <strong>TouchFormer</strong> is designed for <strong>non-optical physical pressure grids</strong> (64×27 force-resistive matrices, e.g., smart mattresses). While vision-based tactile sensors capture high-resolution RGB images of localized gel deformation, physical pressure grids capture continuous, low-resolution numerical force distributions. TouchFormer demonstrates that self-supervised Vision Transformers (ViTs) can directly model physical pressure maps to reconstruct full 3D human pose coordinates, demonstrating the generalizability of tactile SSL beyond optical gel sensors.
+                TouchFormer addresses a <strong>different sensing modality</strong>: non-optical, macro-scale physical pressure grids (64×27 force-resistive matrices, e.g., smart mattresses). Unlike optical tactile sensors which capture RGB images of gel deformation, these grids output low-resolution numerical force distributions across a large area. This work provides empirical evidence that transformer pretraining strategies — both ImageNet transfer and domain-specific MAE — are highly effective for this modality, complementing work like Sparsh rather than competing with it.
             </p>
         </section>
 
@@ -68,7 +68,7 @@
         <section class="section">
             <h2 class="section-title">Model Architecture & Methodology</h2>
             <p>
-                TouchFormer models contact physics by processing raw 2D tactile arrays as visual patches. To capture the complex, non-local pressure distributions of a body resting on a flexible bed, we deploy Google's <strong>Vision Transformer (ViT-B/16)</strong> backbone inside a self-supervised <strong>Masked Autoencoder (MAE)</strong> loop.
+                TouchFormer processes raw 2D tactile arrays as visual patches using Google's <strong>Vision Transformer (ViT-B/16)</strong>. We conducted two independent experiments to evaluate distinct pretraining strategies: <strong>Experiment A</strong> uses ImageNet-pretrained weights via transfer learning, while <strong>Experiment B</strong> builds a custom Masked Autoencoder (MAE) trained from scratch on unlabeled pressure data.
             </p>
 
             <div class="architecture-container">
