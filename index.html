@@ -273,7 +273,7 @@
                             <td>CNN Baseline (Clever et al., CVPR 2020)</td>
                             <td>Random Init</td>
                             <td>None (Supervised Only)</td>
-                            <td>7.75</td>
+                            <td>11.18</td>
                             <td>&mdash;</td>
                         </tr>
                         <tr>
@@ -302,7 +302,7 @@
                 1. <strong>Transfer Learning Benefits:</strong> Initializing the tactile encoder with weights from Google's ImageNet-1k trained ViT-B/16 (Experiment A - Ours) yields the best SOTA error rate of <strong>6.29 cm MPJPE</strong>, showing that visual features transfer exceptionally well to physical contact matrices.
             </p>
             <p>
-                2. <strong>Self-Supervised Tactile Priors:</strong> Training purely on pressure maps from scratch using the Masked Autoencoder objective (Experiment B) yields a highly competitive <strong>6.91 cm MPJPE</strong>, significantly outperforming the supervised CNN baseline (7.75 cm MPJPE) without using any labeled 3D keypoint data.
+                2. <strong>Self-Supervised Tactile Priors:</strong> Training purely on pressure maps from scratch using the Masked Autoencoder objective (Experiment B) yields a highly competitive <strong>6.91 cm MPJPE</strong>, significantly outperforming the supervised CNN baseline (11.18 cm MPJPE) without using any labeled 3D keypoint data.
             </p>
             <p>
                 3. <strong>Compute & Pretraining Efficiency:</strong> Due to academic compute constraints, our custom MAE model (Experiment B) was pre-trained for only <strong>20 epochs</strong> (~5 hours on a single GPU), compared to standard MAE schedules of 800–1600 epochs. Getting so close to the fully pre-trained ImageNet model with a fraction of the compute highlights the extreme sample efficiency of self-supervised learning for tactile grids.

@@ -34,11 +34,11 @@ TouchFormer leverages:
 
 | Model Configuration | Backbone Init | Pretraining | MPJPE (cm) ↓ | PCK @ 15cm (%) ↑ |
 |---------------------|---------------|-------------|--------------|------------------|
-| CNN Baseline (Clever et al., CVPR 2020) | Random | None | 7.75 | — |
+| CNN Baseline (Clever et al., CVPR 2020) | Random | None | 11.18 | — |
 | TouchFormer (Custom MAE - Exp B) | Random | MAE (Pressure Maps) | 6.91 | 90.8% |
 | **TouchFormer (ImageNet Transfer - Exp A) - SOTA** | **ImageNet-1k** | **None** | **6.29** | **92.8%** |
 
-**Key Finding:** Transfer learning from ImageNet-pretrained weights outperforms task-specific self-supervised pretraining, achieving **18.8% error reduction** over CNN baselines.
+**Key Finding:** Transfer learning from ImageNet-pretrained weights outperforms task-specific self-supervised pretraining, achieving **43.7% error reduction** over CNN baselines.
 
 ---
 
@@ -118,7 +118,7 @@ Despite academic compute constraints:
 
 ### Comparison with Prior Work
 - **Sparsh (Meta AI, 2024):** Optical tactile sensing; TouchFormer handles non-optical pressure grids
-- **Clever et al. (CVPR 2020):** CNN baseline for pressure-based pose; TouchFormer achieves 18.8% error reduction
+- **Clever et al. (CVPR 2020):** CNN baseline for pressure-based pose; TouchFormer achieves 43.7% error reduction
 - **Vision Transformers (ViT - Dosovitskiy et al., 2021):** ImageNet pretraining; TouchFormer adapts ViT for tactile domain
 
 ### Novel Contributions
@@ -134,13 +134,6 @@ Despite academic compute constraints:
 If you use TouchFormer in your research, please cite:
 
 ```bibtex
-@article{mondal2026touchformer,
-  title={TouchFormer: Self-Supervised Foundation Model for Tactile Understanding},
-  author={Mondal, Subhranil},
-  journal={arXiv preprint arXiv:2607.01166},
-  year={2026}
-}
-
 @inproceedings{clever2020bodies,
   title={Bodies at Rest: 3D Human Shape and Pose Estimation from a Pressure Image using Synthetic Data},
   author={Clever, Henry M and Erickson, Zackory and Kapusta, Ariel and Turk, Greg and Liu, C Karen and Kemp, Charles C},
